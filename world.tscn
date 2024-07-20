@@ -1,0 +1,181 @@
+[gd_scene load_steps=12 format=3 uid="uid://dte85l3jgqx6e"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_7ydtk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ii2r7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8ww24"]
+sky_material = SubResource("ProceduralSkyMaterial_ii2r7")
+
+[sub_resource type="Environment" id="Environment_gh2mr"]
+background_mode = 2
+sky = SubResource("Sky_8ww24")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqw6o"]
+albedo_color = Color(0.423529, 0.666667, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxgbo"]
+albedo_color = Color(1, 0.313726, 0.145098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hh2l"]
+albedo_color = Color(1, 0, 0.0156863, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujm06"]
+albedo_color = Color(0, 0.317647, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj4o3"]
+albedo_color = Color(1, 0.917647, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maxfh"]
+bg_color = Color(0.470588, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oey2b"]
+bg_color = Color(0.890196, 0, 0.0156863, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="world" type="Node3D"]
+script = ExtResource("1_7ydtk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gh2mr")
+
+[node name="Boxes" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0336957, 0, 0)
+use_collision = true
+size = Vector3(34.7866, 0.002, 31.7758)
+material = SubResource("StandardMaterial3D_fqw6o")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0328, 2.54328, 0)
+use_collision = true
+size = Vector3(1, 8.91052, 31.8942)
+material = SubResource("StandardMaterial3D_xxgbo")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9596, 2.54328, 0)
+use_collision = true
+size = Vector3(1, 8.91052, 31.8942)
+material = SubResource("StandardMaterial3D_xxgbo")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.79326, 2.54328, -15.5338)
+use_collision = true
+size = Vector3(1, 8.91052, 40.7952)
+material = SubResource("StandardMaterial3D_xxgbo")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.79326, 2.54328, 15.7115)
+use_collision = true
+size = Vector3(1, 8.91052, 40.7952)
+material = SubResource("StandardMaterial3D_xxgbo")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2217, 0, -5.56268)
+use_collision = true
+size = Vector3(3.96215, 6.0426, 3.74308)
+material = SubResource("StandardMaterial3D_0hh2l")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70595, 0, -5.56268)
+use_collision = true
+size = Vector3(3.96215, 3.96213, 3.74308)
+material = SubResource("StandardMaterial3D_ujm06")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64137, 0, -5.56268)
+use_collision = true
+size = Vector3(3.96215, 1.63865, 3.74308)
+material = SubResource("StandardMaterial3D_yj4o3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 423.0
+offset_top = 227.0
+offset_right = -423.0
+offset_bottom = -227.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="AdressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter Join Adress Here"
+alignment = 1
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 391.0
+offset_top = 584.0
+offset_right = -391.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_maxfh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oey2b")
+value = 100.0
+show_percentage = false
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
